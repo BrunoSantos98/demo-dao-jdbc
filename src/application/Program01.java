@@ -7,7 +7,7 @@ import model.entities.Seller;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Program01 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
