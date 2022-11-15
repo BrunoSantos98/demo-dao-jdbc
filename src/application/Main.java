@@ -4,15 +4,13 @@ import model.dao.DaoFactory;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
-
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //Test FindById:
 
+        Scanner sc = new Scanner(System.in);
         SellerDao sellerDao = DaoFactory.createSellerDao();
 
         System.out.println("=== TEST 01: seller Find By Id ===");
@@ -43,10 +41,19 @@ public class Main {
         */
 
         System.out.println("=== TEST 05: seller Update ===");
-       seller = sellerDao.findById(1);
-       seller.setName("Martha Wayne");
+        seller = sellerDao.findById(1);
+        seller.setName("Martha Wayne");
         sellerDao.update(seller);
         System.out.println("Update Completed!");
+        System.out.println();
+
+        System.out.println("=== TEST 6: seller Delete ===");
+        System.out.printf("Qual numero de Id do vendendor que deseja apagar ?");
+        Integer sellerId = sc.nextInt();
+        sellerDao.deleteById(sellerId);
+        System.out.println("Delete Completed!");
+        sc.close();
+        System.out.println();
 
     }
 }
